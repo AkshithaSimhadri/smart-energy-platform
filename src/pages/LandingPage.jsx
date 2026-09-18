@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  Zap, BarChart3, Sun, ShieldCheck, Headphones, Settings, 
-  ArrowRight, FileText, Sparkles, TrendingUp, DollarSign, 
-  CheckCircle2, Menu, X, Cpu, ChevronRight, Activity, Shield, ShoppingBag
+  Zap, BarChart3, Sun, Headphones, Settings, 
+  ArrowRight, FileText, Sparkles,
+  CheckCircle2, Menu, X, ChevronRight, Activity, ShoppingBag
 } from 'lucide-react';
+import ThemeToggle from '../components/ThemeToggle';
 
 const LandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -112,7 +113,8 @@ const LandingPage = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle id="navbar-theme-toggle" compact={true} />
             <Link 
               to="/login" 
               className="px-5 py-2.5 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all"
@@ -127,14 +129,18 @@ const LandingPage = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle id="mobile-navbar-theme-toggle" compact={true} />
+            <button 
+              id="mobile-nav-toggle-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
@@ -146,6 +152,10 @@ const LandingPage = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden border-b border-white/10 bg-slate-950/95 backdrop-blur-2xl px-4 py-6 space-y-4"
             >
+              <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Appearance</span>
+                <ThemeToggle id="mobile-drawer-theme-toggle" compact={false} />
+              </div>
               <a 
                 href="#features" 
                 onClick={() => setMobileMenuOpen(false)}

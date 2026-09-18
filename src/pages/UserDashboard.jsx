@@ -18,6 +18,7 @@ import AddReadingModal from '../components/AddReadingModal';
 import BudgetThresholdAlert from '../components/BudgetThresholdAlert';
 import { ApplianceProvider, useHouseholdEnergy } from '../context/ApplianceContext';
 import ConnectedDataSourceBadge from '../components/ConnectedDataSourceBadge';
+import ThemeToggle from '../components/ThemeToggle';
 
 const Sidebar = () => {
   const location = useLocation();
@@ -47,10 +48,16 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all mt-auto border-t border-white/5 pt-4">
-        <LogOut className="w-5 h-5" />
-        <span className="font-medium text-sm">Sign Out</span>
-      </Link>
+      <div className="border-t border-white/10 pt-4 mt-auto space-y-2">
+        <div className="flex items-center justify-between px-3 py-2 rounded-2xl bg-white/5 border border-white/5">
+          <span className="text-xs font-semibold text-slate-300">Theme</span>
+          <ThemeToggle id="dashboard-sidebar-theme-toggle" compact={true} />
+        </div>
+        <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all">
+          <LogOut className="w-5 h-5" />
+          <span className="font-medium text-sm">Sign Out</span>
+        </Link>
+      </div>
     </div>
   );
 };
@@ -141,6 +148,7 @@ const DashboardHome = () => {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
+          <ThemeToggle id="dashboard-header-theme-toggle" compact={true} />
           <button
             id="header-download-monthly-csv-btn"
             onClick={handleDownloadCSV}

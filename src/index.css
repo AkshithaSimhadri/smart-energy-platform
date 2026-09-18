@@ -148,6 +148,74 @@ html.light .border-slate-800 {
   border-color: #e2e8f0 !important;
 }
 
+/* Navigation bar light mode styling */
+html.light nav {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+html.light nav span.text-white,
+html.light nav div.text-white {
+  color: #0f172a !important;
+}
+
+html.light nav .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light nav .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light nav a.hover\:text-white:hover {
+  color: #0891b2 !important;
+}
+
+html.light nav a.hover\:bg-white\/5:hover,
+html.light nav button.hover\:bg-white\/5:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html.light nav .bg-white\/5 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Sidebar navigation in light mode */
+html.light [class*="w-64"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 2px 0 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+html.light [class*="w-64"] span.text-white {
+  color: #0f172a !important;
+}
+
+html.light [class*="w-64"] .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light [class*="w-64"] .hover\:bg-white\/5:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* General text contrast in light mode */
+html.light .text-slate-300 {
+  color: #334155;
+}
+
+html.light .text-slate-400 {
+  color: #64748b;
+}
+
+html.light .text-slate-500 {
+  color: #64748b;
+}
+
 /* Keep colored button labels white */
 html.light button.bg-cyan-500,
 html.light button.bg-cyan-600,
