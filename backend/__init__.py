@@ -1,1 +1,0 @@
-# Smart Household Energy Backend
